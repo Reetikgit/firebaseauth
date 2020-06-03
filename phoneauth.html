@@ -227,7 +227,7 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
          // Listen to change in auth state so it displays the correct UI for when
          // the user is signed in or not.
          firebase.auth().onAuthStateChanged(function(user) {
-           document.getElementById('loading').style.display = 'none';
+//            document.getElementById('loading').style.display = 'none';
            document.getElementById('loaded').style.display = 'block';
            user ? handleSignedInUser(user) : handleSignedOutUser();
          });
