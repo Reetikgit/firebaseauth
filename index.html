@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Gmail and Phone Authentication</title>
+  <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+  <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+  <script src="firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="firebaseui.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="common.js"></script>
 
-	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
 	<script>
   var config = {
     apiKey: "AIzaSyCr1S8ZkSFx2NyyZAtlc60qzO4F2_5CRTQ",
@@ -20,21 +26,34 @@ firebase.initializeApp(config);
 var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercontent.com';
 
 	</script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" />
+<!--   <script src="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.js"></script> -->
+<!--   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.3.0/firebaseui.css" /> -->
   <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
 
 </head>
-<body>
+<body onload="startup()">
     <div id="container">
       <h3>Please Verify your phone Number</h3>
       <div id="loading">Loading...</div>
       <div id="loaded" class="hidden">
         <div id="main">
           <div id="user-signed-in" class="hidden">
+
+            <div id="user-info">
+              <div id="photo-container">
+                <img id="photo">
+              </div>
+              <div id="name" style="color: red"></div>
+              <div id="email"></div>
+              <div id="phone" style="color:green">
+
+              </div>
+              <div id="is-new-user"></div>
+              <div class="clearfix"></div>
+            </div>
             <div id="user-info">
               <div id="phone"></div>
-              <div class="clearfix"></div>
+             <!--  <div class="clearfix"></div> -->
             </div>
             <p>
               <button id="sign-out">Sign Out</button>
@@ -49,6 +68,14 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
         </div>
       </div>
     </div>
+
     <script src="app.js"></script>
+    <script type="text/javascript">
+      function startup(){
+         window.open = cordova.InAppBrowser.open;
+         var ref = cordova.InAppBrowser.open('index.html', '_blank', 'location=yes');
+         ref.addEventListener('loadstart', function(event) { alert(event.url); });
+      }
+    </script>
 </body>
 </html>
