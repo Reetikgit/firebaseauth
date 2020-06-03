@@ -72,10 +72,7 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
  <!--    <script src="app.js"></script> -->
     <script type="text/javascript">
       function startup(){
-        window.open = cordova.InAppBrowser.open;
-
-         var ref = cordova.InAppBrowser.open('https://reetikgit.github.io/firebaseauth/index.html', '_blank', 'location=no');
-         ref.addEventListener('loadstart', function(event) {});
+  
          // ref.close();
          // window.location="indexafter.html"
          // ref.close();
@@ -172,7 +169,7 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
            var email = firebase.auth().currentUser.email;
            var imageURL=firebase.auth().currentUser.photoURL;
            var phone=firebase.auth().currentUser.phoneNumber;
-           ref.close();
+          
            window.location="indexafter.html"
          // ref.child("phonenumber").setValue(number);
            // document.getElementById('user-signed-in').style.display = 'block';
