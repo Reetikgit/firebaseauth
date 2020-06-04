@@ -114,9 +114,11 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
 
                {
                  provider: firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-                 // recaptchaParameters: {
-                 //   size: getRecaptchaMode()
-                 // }
+             	recaptchaParameters: {
+		  type: 'image',
+		  size: 'invisible',
+		  badge: 'bottomleft'
+        }
                   defaultCountry: 'IN',
                  defaultNationalNumber: '',
                  loginHint: ''
