@@ -77,10 +77,9 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var name1= urlParams.get(('para1'));
-        var email1= urlParams.get(('para2'));
-        var pass= urlParams.get(('para3'));
+
         
-	var imgurl= urlParams.get(('para4'));
+	var imgurl= urlParams.get(('para2'));
         // window.open = cordova.InAppBrowser.open;
 
         //  var ref = cordova.InAppBrowser.open('https://reetikgit.github.io/firebaseauth/index.html', '_blank', 'location=no');
@@ -204,18 +203,16 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
            } else {
              document.getElementById('photo').style.display = 'none';
            }
-           writeUserData(userId,name,name1,email,email1,imageURL,phone,pass,imgurl)
+           writeUserData(userId,name,name1,email,imageURL,phone,imgurl)
          };
-         function writeUserData(userId, name,name1, email, email1,imageUrl,phone,pass,imgurl) {
+         function writeUserData(userId, name,name1, email,imageUrl,phone,imgurl) {
            firebase.database().ref('users/' + userId).set({
              userId:userId,
              username: name,
              username:name1,
              email: email,
-             email:email1,
              profile_picture : imageUrl,
              Phone:phone,
-             password:pass,
 	     img:imgurl
            });
          }
