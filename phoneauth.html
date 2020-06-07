@@ -77,6 +77,7 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         var name1= urlParams.get(('para1'));
+	var randomid= urlParams.get(('para3'));
 
         
 	var imgurl= urlParams.get(('para2'));
@@ -203,9 +204,9 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
            } else {
              document.getElementById('photo').style.display = 'none';
            }
-           writeUserData(userId,name,name1,email,imageURL,phone,imgurl)
+           writeUserData(userId,name,name1,email,imageURL,phone,imgurl,randomid)
          };
-         function writeUserData(userId, name,name1, email,imageUrl,phone,imgurl) {
+         function writeUserData(userId, name,name1, email,imageUrl,phone,imgurl,randomid) {
            firebase.database().ref('users/' + userId).set({
              userId:userId,
              username: name,
@@ -213,7 +214,8 @@ var CLIENT_ID ='99526553521-4lhleo14dlm1r1ncgu1bc1vdqi9g4n26.apps.googleusercont
              email: email,
              profile_picture : imageUrl,
              Phone:phone,
-	     img:imgurl
+	     img:imgurl,
+	     randomid:randomid
            });
          }
 
